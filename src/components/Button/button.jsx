@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { PhoneBtn } from './button.styled';
 
-function Button({ children, onClick }) {
+export default function Button({ children, onClick }) {
   return <PhoneBtn onClick={onClick}>{children}</PhoneBtn>;
 }
 
@@ -11,4 +11,4 @@ Button.propTypes = {
   onClick: PropTypes.func,
 };
 
-export default Button;
+// export default Button;
