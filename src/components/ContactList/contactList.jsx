@@ -1,5 +1,4 @@
-// import React from 'react';
-// import PropTypes from 'prop-types';
+import React from 'react';
 import Button from '../Button/button';
 import { List, ListItem, ListText } from './contactList.styled';
 import { useSelector, useDispatch } from 'react-redux';

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// import PropTypes from 'prop-types';
 import { Form, FormLabel, FormInput } from './contactForm.styled';
 import Button from '../Button/button';
 import { useDispatch } from 'react-redux';

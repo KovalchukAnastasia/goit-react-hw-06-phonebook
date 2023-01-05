@@ -10,5 +10,3 @@ Button.propTypes = {
   children: PropTypes.node,
   onClick: PropTypes.func,
 };
-
-// export default Button;

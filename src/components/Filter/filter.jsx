@@ -1,5 +1,4 @@
-// import React from 'react';
-// import PropTypes from 'prop-types';
+import React from 'react';
 import { FilterLabel, FilterInput } from './filter.styled';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateFilter } from '../../redux/filtersSlice';
