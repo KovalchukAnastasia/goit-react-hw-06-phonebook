@@ -1,15 +1,19 @@
 import { useState } from 'react';
 import { Form, FormLabel, FormInput } from './contactForm.styled';
 import Button from '../Button/button';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../../redux/contactsSlice';
 import { nanoid } from 'nanoid';
+import { Notify } from 'notiflix';
+
+Notify.init({ position: 'center-top' });
 
 export default function ContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
 
+  const contacts = useSelector(state => state.contacts);
   const handleChange = event => {
     const { name, value } = event.currentTarget;
     switch (name) {
@@ -30,11 +34,20 @@ export default function ContactForm() {
     setName('');
     setNumber('');
   };
+  const handleChekUnique = name => {
+    const isExistContact = !!contacts.find(
+      contact => contact.name.toLowerCase() === name.toLowerCase()
+    );
+    isExistContact && Notify.warning(name + ' is already in contacts');
+    return !isExistContact;
+  };
 
   const handleAddContact = event => {
     event.preventDefault();
-    dispatch(addContact({ id: nanoid(), name, number }));
-    resetForm();
+    if (handleChekUnique(name)) {
+      dispatch(addContact({ id: nanoid(), name, number }));
+      resetForm();
+    }
   };
 
   return (
