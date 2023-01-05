@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '../Button/button';
 import { List, ListItem, ListText } from './contactList.styled';
 import { useSelector, useDispatch } from 'react-redux';
@@ -32,3 +33,11 @@ export default function ContactList() {
     </List>
   );
 }
+
+ContactList.propTypes = {
+  contacts: PropTypes.array,
+  id: PropTypes.string,
+  name: PropTypes.string,
+  number: PropTypes.string,
+  deleteContact: PropTypes.func,
+};

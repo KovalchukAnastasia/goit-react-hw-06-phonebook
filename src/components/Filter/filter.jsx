@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FilterLabel, FilterInput } from './filter.styled';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateFilter } from '../../redux/filtersSlice';
@@ -18,3 +19,8 @@ export default function Filter() {
     </FilterLabel>
   );
 }
+
+Filter.propTypes = {
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+};
