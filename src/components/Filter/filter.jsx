@@ -9,7 +9,7 @@ export default function Filter() {
   const dispatch = useDispatch();
 
   const changeFilter = event => {
-    dispatch(updateFilter(event.currentTarget.value));
+    dispatch(updateFilter(event.target.value));
   };
 
   return (
